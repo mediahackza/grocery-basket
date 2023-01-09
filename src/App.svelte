@@ -72,8 +72,6 @@
 </script>
 
 <main>
-  <h1>Grocery Basket</h1>
-
   {#if !promise}
     <div class="placeholder">
       <div class="basket-icon">
@@ -99,15 +97,19 @@
       <table>
         <tr
           ><th>Report Date</th><th>Item</th><th>Checkers</th><th>Pick n Pay</th
-          ><th>Spar</th><th>Woolworths</th><th>Shoprite</th></tr
+          ><th>Spar</th><th>Woolworths</th><th>Shoprite</th><th>Food Lovers</th
+          ></tr
         >
         {#if loaddata}
           {#each curData as cd}
             <tr transition:fade={{ duration: 500 }}
               ><td>{cd.report_date}</td><td>{cd.type}</td><td>R{cd.checkers}</td
-              ><td>R{cd.spar}</td><td>R{cd.pick_n_pay}</td><td
+              ><td>R{cd.pick_n_pay}</td><td>R{cd.spar}</td><td
                 >R{cd.woolworths}</td
-              ><td>R{cd.shoprite}</td></tr
+              ><td>R{cd.shoprite}</td>
+              <td
+                >{#if cd.food_lovers}R{cd.food_lovers}{:else}N/A{/if}</td
+              ></tr
             >
           {/each}
           {#if curData}
@@ -118,6 +120,7 @@
               <td class="total">{total(curData, 'spar')}</td>
               <td class="total">{total(curData, 'woolworths')}</td>
               <td class="total">{total(curData, 'shoprite')}</td>
+              <td class="total">{total(curData, 'food_lovers')}</td>
             </tr>
           {/if}
         {/if}
@@ -128,7 +131,7 @@
 
 <style>
   main {
-    width: 90%;
+    width: 100%;
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
