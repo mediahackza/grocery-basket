@@ -1,4 +1,5 @@
 <script>
+  import pym from 'pym.js'
   import { fly, fade } from 'svelte/transition'
   import { onMount } from 'svelte'
   let promise = false
@@ -64,10 +65,14 @@
   }
 
   onMount(() => {
-    getData().then(() => {
-      console.log(data)
-      console.log(dates)
-    })
+    getData()
+      .then(() => {
+        console.log(data)
+        console.log(dates)
+      })
+      .then(() => {
+        new pym.Child({ polling: 500 })
+      })
   })
 </script>
 
