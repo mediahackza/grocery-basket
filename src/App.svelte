@@ -133,7 +133,7 @@
               <td class="total">{total(curData, 'shoprite')}</td>
               <td class="total">{total(curData, 'food_lovers')}</td>
               <td class="total">{total(curData, 'boxer')}</td>
-              <td class="total">{total(curData, 'makroas')}</td>
+              <td class="total">{total(curData, 'makro')}</td>
             </tr>
           {/if}
         {/if}
