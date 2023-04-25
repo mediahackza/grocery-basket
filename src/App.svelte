@@ -103,7 +103,7 @@
         <tr
           ><th>Report Date</th><th>Item</th><th>Checkers</th><th>Pick n Pay</th
           ><th>Spar</th><th>Woolworths</th><th>Shoprite</th><th>Food Lovers</th
-          ></tr
+          ><th>Boxer</th><th>Makro</th></tr
         >
         {#if loaddata}
           {#each curData as cd}
@@ -114,8 +114,14 @@
               ><td>R{cd.shoprite}</td>
               <td
                 >{#if cd.food_lovers}R{cd.food_lovers}{:else}N/A{/if}</td
-              ></tr
-            >
+              >
+              <td
+                >{#if cd.boxer}R{cd.boxer}{:else}N/A{/if}</td
+              >
+              <td
+                >{#if cd.makro}R{cd.makro}{:else}N/A{/if}</td
+              >
+            </tr>
           {/each}
           {#if curData}
             <tr
@@ -126,6 +132,8 @@
               <td class="total">{total(curData, 'woolworths')}</td>
               <td class="total">{total(curData, 'shoprite')}</td>
               <td class="total">{total(curData, 'food_lovers')}</td>
+              <td class="total">{total(curData, 'boxer')}</td>
+              <td class="total">{total(curData, 'makroas')}</td>
             </tr>
           {/if}
         {/if}
